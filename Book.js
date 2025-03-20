@@ -1,34 +1,37 @@
 const mongoose = require("mongoose");
 
-const cartSchema = new mongoose.Schema({
-  fullName: {
+const bookSchema = new mongoose.Schema({
+  bookTitle: {
     type: String,
     required: true,
   },
-  email: {
+  authorName: {
     type: String,
     required: true,
   },
-  address: {
-    type: String,
-    required: true,
-  },
-  city: {
-    type: String,
-    required: true,
-  },
-  postalCode: {
-    type: String,
-    required: true,
-  },
-  uploadPaymentProof: {
+  imageURL: {
     type: String,
     unique: true,
     required: true,
   },
-  promoCode: {
-    type: string,
+  category: {
+    type: String,
+    required: true,
   },
+  bookDescription: {
+    type: String,
+    required: true,
+  },
+  bookPDFURL: {
+    type: String,
+    unique: true,
+    required: true,
+  },
+  price :{
+    type: Number,
+    unique: true,
+    required: true,
+  }
 });
 
-module.exports = mongoose.model("Cart", cartSchema);
+module.exports = mongoose.model("Book", bookSchema);
